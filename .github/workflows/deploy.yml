@@ -45,9 +45,7 @@ jobs:
 
       - name: Read project name
         id: config
-        run: |
-          echo "project_name=$(python3 -c \"import json; print(json.load(open('config.json'))['project_name'])\")" \
-            >> $GITHUB_OUTPUT
+        run: echo "project_name=$(jq -r '.project_name' config.json)" >> $GITHUB_OUTPUT
 
       - name: Create Cloudflare Pages project (idempotent)
         run: |
