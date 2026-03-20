@@ -35,8 +35,15 @@ jobs:
         run: npm ci
         working-directory: dental-template-repo/dental-template
 
+      - name: Trigger Tina Cloud indexing
+        run: |
+          curl -s -X POST \
+            "https://content.tinajs.io/db/${{ vars.TINA_CLIENT_ID }}/reset/main?refreshSchema=true&skipIfSchemaCurrent=true" \
+            -H "X-API-KEY: ${{ secrets.TINA_TOKEN }}" \
+            -H "Content-Type: application/json"
+
       - name: Build
-        run: node scripts/tinacms.cjs build --skip-cloud-checks && npx astro build
+        run: node scripts/tinacms.cjs build && npx astro build
         working-directory: dental-template-repo/dental-template
         env:
           TINA_CLIENT_ID: ${{ vars.TINA_CLIENT_ID }}
