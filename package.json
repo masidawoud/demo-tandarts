@@ -1,0 +1,7 @@
+{
+  "name": "demo-tandarts",
+  "version": "1.0.0",
+  "dependencies": {
+    "tinacms": "^3.6.3"
+  }
+}
