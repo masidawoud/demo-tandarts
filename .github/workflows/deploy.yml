@@ -1,0 +1,66 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [template-update]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout client repo
+        uses: actions/checkout@v4
+
+      - name: Clone dental-template (feature/tinacms)
+        # TODO: change --branch feature/tinacms to main before production use
+        run: |
+          git clone https://github.com/masidawoud/autosite.git \
+            --branch feature/tinacms \
+            --depth 1 \
+            dental-template-repo
+
+      - name: Inject content files
+        run: cp -r src/data/. dental-template-repo/dental-template/src/data/
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: dental-template-repo/dental-template/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: dental-template-repo/dental-template
+
+      - name: Build
+        run: npm run build
+        working-directory: dental-template-repo/dental-template
+        env:
+          TINA_CLIENT_ID: ${{ vars.TINA_CLIENT_ID }}
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+
+      - name: Read project name
+        id: config
+        run: |
+          echo "project_name=$(python3 -c \"import json; print(json.load(open('config.json'))['project_name'])\")" \
+            >> $GITHUB_OUTPUT
+
+      - name: Create Cloudflare Pages project (idempotent)
+        run: |
+          npx wrangler pages project create "${{ steps.config.outputs.project_name }}" || true
+        working-directory: dental-template-repo/dental-template
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Deploy to Cloudflare Pages
+        run: |
+          npx wrangler pages deploy dist/ \
+            --project-name "${{ steps.config.outputs.project_name }}"
+        working-directory: dental-template-repo/dental-template
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
