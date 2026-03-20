@@ -58,7 +58,8 @@ jobs:
       - name: Deploy to Cloudflare Pages
         run: |
           npx wrangler pages deploy dist/ \
-            --project-name "${{ steps.config.outputs.project_name }}"
+            --project-name "${{ steps.config.outputs.project_name }}" \
+            --branch main
         working-directory: dental-template-repo/dental-template
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
