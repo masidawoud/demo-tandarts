@@ -17,7 +17,7 @@
   "hero": {
     "eyebrow": "Tandarts Amsterdam-Centrum",
     "headline": "Tandheelkunde ontworpen om goed te voelen.",
-    "description": "Moderne tandheelkunde in een warme, persoonlijke omgeving. Wij nemen de tijd voor u — want uw glimlach verdient de allerbeste zorg.",
+    "description": "Heel nice lekker doorgaan zo jongens!!!",
     "cta_primary": "Afspraak Maken",
     "cta_secondary": "Bel ons",
     "image_url": "https://images.unsplash.com/photo-1495573020741-8a2f372bbec3?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=720&h=860&fit=crop&crop=center"
@@ -75,7 +75,11 @@
         "title": "De Basis",
         "desc": "Regelmatige controles en reiniging zijn de hoeksteen van een gezond gebit. Wij helpen u elke dag goed voor uw tanden te zorgen — zodat u straks weinig te behandelen heeft.",
         "image_url": "https://images.unsplash.com/photo-1588776814546-1ffedba9e9a0?w=640&h=440&fit=crop&crop=center",
-        "items": ["Controle & professionele reiniging", "Digitale röntgenfoto's", "Mondhygiëne advies op maat"],
+        "items": [
+          "Controle & professionele reiniging",
+          "Digitale röntgenfoto's",
+          "Mondhygiëne advies op maat"
+        ],
         "cta": "Afspraak Inplannen"
       },
       {
@@ -83,7 +87,11 @@
         "title": "De Glimlach Upgrade",
         "desc": "Klaar voor een stralendere glimlach? Van subtiele verbeteringen tot een complete transformatie — wij begeleiden u eerlijk, deskundig en met oog voor wat bij u past.",
         "image_url": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=640&h=440&fit=crop&crop=center",
-        "items": ["Tandbleken & composiet restauraties", "Veneers & keramische kronen", "Invisalign® orthodontie"],
+        "items": [
+          "Tandbleken & composiet restauraties",
+          "Veneers & keramische kronen",
+          "Invisalign® orthodontie"
+        ],
         "cta": "Meer Informatie"
       },
       {
@@ -91,7 +99,11 @@
         "title": "De Geavanceerde Behandelingen",
         "desc": "Implantaten, wortelkanaalbehandelingen, extracties — voor de complexere ingrepen staan onze specialisten klaar. Wij leggen altijd duidelijk uit wat u kunt verwachten.",
         "image_url": "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=640&h=440&fit=crop&crop=center",
-        "items": ["Tandimplantaten", "Wortelkanaalbehandeling", "Prothesen & overkappingen"],
+        "items": [
+          "Tandimplantaten",
+          "Wortelkanaalbehandeling",
+          "Prothesen & overkappingen"
+        ],
         "cta": "Plan een Consult"
       }
     ]
@@ -165,13 +177,41 @@
   },
   "hours": {
     "items": [
-      { "day": "Maandag",   "time": "08:00 – 17:30", "open": true },
-      { "day": "Dinsdag",   "time": "08:00 – 17:30", "open": true },
-      { "day": "Woensdag",  "time": "08:00 – 17:30", "open": true },
-      { "day": "Donderdag", "time": "08:00 – 19:00", "open": true },
-      { "day": "Vrijdag",   "time": "08:00 – 16:00", "open": true },
-      { "day": "Zaterdag",  "time": "Op afspraak",   "open": true },
-      { "day": "Zondag",    "time": "Gesloten",      "open": false }
+      {
+        "day": "Maandag",
+        "time": "08:00 – 17:30",
+        "open": true
+      },
+      {
+        "day": "Dinsdag",
+        "time": "08:00 – 17:30",
+        "open": true
+      },
+      {
+        "day": "Woensdag",
+        "time": "08:00 – 17:30",
+        "open": true
+      },
+      {
+        "day": "Donderdag",
+        "time": "08:00 – 19:00",
+        "open": true
+      },
+      {
+        "day": "Vrijdag",
+        "time": "08:00 – 16:00",
+        "open": true
+      },
+      {
+        "day": "Zaterdag",
+        "time": "Op afspraak",
+        "open": true
+      },
+      {
+        "day": "Zondag",
+        "time": "Gesloten",
+        "open": false
+      }
     ]
   },
   "vergoeding": {
@@ -193,8 +233,16 @@
       }
     ],
     "insurers": [
-      "Zilveren Kruis", "CZ", "Menzis", "VGZ", "DSW",
-      "ONVZ", "ASR", "Nationale Nederlanden", "Zorg en Zekerheid", "Eno"
+      "Zilveren Kruis",
+      "CZ",
+      "Menzis",
+      "VGZ",
+      "DSW",
+      "ONVZ",
+      "ASR",
+      "Nationale Nederlanden",
+      "Zorg en Zekerheid",
+      "Eno"
     ],
     "cta": "Vraag naar uw vergoeding"
   },
