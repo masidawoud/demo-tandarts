@@ -36,11 +36,12 @@ jobs:
         working-directory: dental-template-repo/dental-template
 
       - name: Build
-        run: npm run build
+        run: node scripts/tinacms.cjs build --skip-cloud-checks && npx astro build
         working-directory: dental-template-repo/dental-template
         env:
           TINA_CLIENT_ID: ${{ vars.TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+          GITHUB_BRANCH: main
 
       - name: Read project name
         id: config
